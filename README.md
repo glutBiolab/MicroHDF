@@ -1,9 +1,3 @@
-<style>
-  .long-text {
-    word-wrap: break-word;
-    white-space: normal;
-  }
-</style>
 # MicroHDF : predicting host phenotypes with metagenomic data using a deep forest-based framework
 
 The accurate classification of host phenotypes based on microbiome data with machine learning (ML) methods has attracted a lot of attention recently. However, decreased accuracy and poor generalisation are widespread in the host phenotype prediction task owing to metagenomic data with a low sample size, class imbalance, and high-dimensional features, etc. To address these factors of impacted model prediction, we propose MicroHDF, a novel interpretable deep learning framework utilizing ensemble cascade layers composed of various deep forest units to tackle these challenges. 
