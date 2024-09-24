@@ -118,7 +118,7 @@ python multi_channel_main.py -i <Input_file> -d <disease>
     -h, --help                    Show help message and exit.
     -i, --input_file              The directory of input csv file.
     -d, --disease                 The name of the disease.
-    -dp, --damping                You can specify the damping factor by setting the damping parameter.  (default: 0.5)
+    -dp, --damping                The value of damping in APCluster.(default: 0.5)
     -mi, --max_iter               The value of max_iter in APCluster.(default: 50)
     -ci, --convergence_iter       The value of convergence_iter in APCluster.(default: 25)
     -c, --cvfold                  The value of k in k-fold cross validation.(default: 5)
