@@ -103,7 +103,7 @@ The result is a phylogenetic tree matrix.<br/>
 
 #### Use MicroHDF to classify disease status for input samples
 
- Apply MicroHDF to classify the disease status of your test samples.
+ We can classify the disease status of test samples by using MicroHD.
 
 
 `
@@ -111,7 +111,7 @@ python multi_channel_main.py -i <Input_file> -d <disease>
 `<BR/>
 (Note: `<disease>` refers to the name of disease in the column "disease" of input matrix. For example, `-d Cirrhosis`, `-d IBD`, etc. )
 
-#### Full command-line options
+#### We can use MicroHDF through the command line
 `python multi_channel_main.py -h`<BR/>
 ```
   optional arguments:
