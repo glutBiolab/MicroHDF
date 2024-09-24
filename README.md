@@ -122,11 +122,11 @@ python multi_channel_main.py -i <Input_file> -d <disease>
     -mi, --max_iter               The value of max_iter in APCluster.(default: 50)
     -ci, --convergence_iter       The value of convergence_iter in APCluster.(default: 25)
     -c, --cvfold                  The value of k in k-fold cross validation.(default: 5)
-    -p, --simi_type               The value simi_type represents two methods of similarity: braycurtis and distance similarity (default: distance similarity).
-    -k, --kmeans                  The value kmeans stands for the number of K-means clusters.(default: 5)
+    -p, --simi_type               The parameter simi_type in APCluster represents the choice between two methods for calculating similarity: Bray-Curtis similarity and distance-based similariy. (default: distance similarity).
+    -k, --kmeans                  The kmeans parameter designates the number of clusters to be identified through the application of the K-means clustering algorithm.(default: 5)
     -rcr, --run_cluster_resample  Whether run cluster and resample process.If set to 1, then will add the process. (default: run)
     -s, --select_feature          The value select_feature stands for the way features are filtered.  (default: 1)
-    -ct, --cluster_type           The value cluster_type represents the sampling method: We provide two sampling methods: probabilistic and proportional.  (default: proportional)
+    -ct, --cluster_type           The cluster_type parameter specifies the sampling methodology to be employed, offering two options: probabilistic sampling and proportional sampling.  (default: proportional)
 ```
 
 #### Batch effect removeing
