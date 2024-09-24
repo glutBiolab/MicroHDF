@@ -90,55 +90,10 @@ rownames(combined_data) <- combined_data$SampleID
 combined_data <- combined_data[, -1]
 write.csv(combined_data, "data/IBD1_IBD2_combined.csv", row.names = TRUE)
 
-#====================4.再次合并两个已经合并好的数据集，进行批次效应去除====================
-data1 <- fread("data/IBD1_IBD2_combined.csv")
-data2 <- fread("data/IBD3_IBD4_combined.csv")
 
-X1 <- as.matrix(data1[, -1, with=FALSE])
-X2 <- as.matrix(data2[, -1, with=FALSE])
-
-print(paste("dataset1 样本:", nrow(data1), "特征:", ncol(data1) - 1))
-print(paste("dataset2 样本:", nrow(data2), "特征:", ncol(data2) - 1))
-
-# 获取特征并集
-all_features <- union(colnames(X1), colnames(X2))
-diff_features <- intersect(colnames(X1), colnames(X2))
-print(paste("union_features 数量:", length(all_features)))
-print(paste("diff_features 数量:", length(diff_features)))
-
-# 创建包含所有特征的数据框，并将缺失的特征赋值为0
-X1_full <- matrix(0, nrow=nrow(X1), ncol=length(all_features))
-colnames(X1_full) <- all_features
-X1_full[, colnames(X1)] <- X1
-
-X2_full <- matrix(0, nrow=nrow(X2), ncol=length(all_features))
-colnames(X2_full) <- all_features
-X2_full[, colnames(X2)] <- X2
-
-# 保留样本名
-X1_full <- cbind(data1[, 1, with=FALSE], X1_full)
-X2_full <- cbind(data2[, 1, with=FALSE], X2_full)
-
-# 确保列名一致
-colnames(X1_full) <- c("SampleID", all_features)
-colnames(X2_full) <- c("SampleID", all_features)
-
-# 合并数据
-combined_data <- rbind(
-  data.frame(X1_full),
-  data.frame(X2_full)
-)
-
-print(paste("combined_data 行数:", nrow(combined_data)))
-print(paste("combined_data 列数:", ncol(combined_data)))
-
-rownames(combined_data) <- combined_data$SampleID
-combined_data <- combined_data[, -1]
-write.csv(combined_data, "data/IBD_combined_4data.csv", row.names = TRUE)
-
-#============================5.批次效应去除和评估===========================
-combin_abundance <- read.csv("data/IBD_combined_4data.csv",header = TRUE,sep = ",",row.names = 1)
-combin_metadata <- read.csv("data/IBD_metadata_4data.csv",header = TRUE,sep = ",",row.names = 1)
+#============================4.批次效应去除和评估===========================
+combin_abundance <- read.csv("data/IBD1_IBD2_combined.csv",header = TRUE,sep = ",",row.names = 1)
+combin_metadata <- read.csv("data/IBD1_IBD2_combined_metadata.csv",header = TRUE,sep = ",",row.names = 1)
 
 # 对每行进行归一化
 normalized_data <- t(apply(combin_abundance, 1, function(x) x/sum(x)))
@@ -157,8 +112,8 @@ fit_adjust_batch <- adjust_batch(feature_abd = normalized_df,
 
 abd_adj <- fit_adjust_batch$feature_abd_adj
 
-write.csv(normalized_data,"data/resulttest/IBD_combined_scaled.csv")
-write.csv(t(abd_adj),"data/resulttest/IBD_removebe.csv")
+write.csv(normalized_data,"data/resulttest/IBD1_IBD2_combined_scaled.csv")
+write.csv(t(abd_adj),"data/resulttest/IBD1_IBD2_removebe.csv")
 
 # 评估批次效应处理前后
 D_before <- vegdist(normalized_data)
