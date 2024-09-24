@@ -118,14 +118,14 @@ python multi_channel_main.py -i <Input_file> -d <disease>
     -h, --help                    Show help message and exit.
     -i, --input_file              The directory of input csv file.
     -d, --disease                 The name of the disease.
-    -dp, --damping                The value of damping in APCluster.(default: 0.5)
+    -dp, --damping                You can specify the damping factor by setting the damping parameter.  (default: 0.5)
     -mi, --max_iter               The value of max_iter in APCluster.(default: 50)
     -ci, --convergence_iter       The value of convergence_iter in APCluster.(default: 25)
     -c, --cvfold                  The value of k in k-fold cross validation.(default: 5)
-    -p, --simi_type               The parameter simi_type in APCluster represents the choice between two methods for calculating similarity: Bray-Curtis similarity and distance-based similariy. (default: distance similarity).
-    -k, --kmeans                  The kmeans parameter designates the number of clusters to be identified through the application of the K-means clustering algorithm.(default: 5)
+    -p, --simi_type               The parameter simi_type represents the choice between two methods for calculating similarity: Bray-Curtis similarity and distance-based similariy. (default: distance similarity).
+    -k, --kmeans                  The kmeans parameter is the number of kmeans clusters. (default: 5)
     -rcr, --run_cluster_resample  Whether run cluster and resample process.If set to 1, then will add the process. (default: run)
-    -s, --select_feature          The value select_feature stands for the way features are filtered.  (default: 1)
+    -s, --select_feature          The parameter select_feature represents the way a feature is selected, and we offer two different options.  (default: 1)
     -ct, --cluster_type           The cluster_type parameter specifies the sampling methodology to be employed, offering two options: probabilistic sampling and proportional sampling.  (default: proportional)
 ```
 
