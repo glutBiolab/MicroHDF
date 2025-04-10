@@ -143,5 +143,5 @@ Rscript Batcheffect_removed.R
 
 ## Contact
 
-If you have any questions, please directed to the corresponding authors : 471745950@qq.com 
+If you have any questions, please directed to the corresponding authors : 975884322@qq.com 
 
